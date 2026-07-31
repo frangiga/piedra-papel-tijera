@@ -443,7 +443,7 @@
     <header>
         <h1>CULLERA</h1>
         <p>Piedra, Papel o Tijera</p>
-        <div class="target-badge">Gana 5 partidas a la banca</div>
+        <div class="target-badge">Gana 12 partidas a la banca</div>
     </header>
 
     <!-- Scoreboard -->
@@ -504,7 +504,7 @@
     <div class="modal-overlay" id="victory-modal">
         <div class="modal-card">
             <h2>¡LO CONSEGUISTE! 🎉</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Has derrotado a la banca 5 a <span id="final-banca-score">0</span></p>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Has derrotado a la banca 12 a <span id="final-banca-score">0</span></p>
 
             <div style="margin-top: 20px;">
                 <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Clave Certitude:</span><br>
@@ -590,7 +590,7 @@
         // Game State
         let playerScore = 0;
         let bancaScore = 0;
-        const TARGET_SCORE = 5;
+        const TARGET_SCORE = 12;
         let isPlaying = false;
 
         const moveData = {
@@ -698,7 +698,7 @@
             arenaBox.classList.add('shake');
             
             const statusMsg = document.getElementById('status-msg');
-            statusMsg.innerText = '¡La Banca ha alcanzado 5 puntos! Reiniciando...';
+            statusMsg.innerText = '¡La Banca ha alcanzado 12 puntos! Reiniciando...';
             statusMsg.style.background = 'linear-gradient(90deg, #dc2626, #ea580c)';
 
             setTimeout(() => {
