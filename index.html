@@ -29,8 +29,8 @@
 
         html, body {
             height: 100%;
-            height: 100dvh; /* Altura dinámica exacta para navegadores móviles */
-            overflow: hidden; /* Prohibido el scroll */
+            height: 100dvh;
+            overflow: hidden;
         }
 
         body {
@@ -40,20 +40,51 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 15px 15px 8px 15px;
+            padding: 10px 15px 8px 15px;
+        }
+
+        /* Header Bar with Language Selector */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .lang-selector-mini {
+            display: flex;
+            gap: 4px;
+        }
+
+        .flag-btn-mini {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 2px 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .flag-btn-mini.active {
+            border-color: var(--orange-glow);
+            background: rgba(249, 115, 22, 0.25);
+            transform: scale(1.1);
         }
 
         /* Header */
         header {
             text-align: center;
-            margin-top: 5px;
-            margin-bottom: 5px;
+            margin-top: 2px;
+            margin-bottom: 2px;
             flex-shrink: 0;
         }
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             background: linear-gradient(135deg, var(--orange-glow), var(--purple-glow), var(--blue-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -65,8 +96,8 @@
 
         header p {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 2px;
+            font-size: 0.8rem;
+            margin-top: 1px;
         }
 
         .target-badge {
@@ -74,11 +105,11 @@
             background: rgba(249, 115, 22, 0.15);
             border: 1px solid var(--orange-main);
             color: var(--orange-glow);
-            padding: 3px 12px;
+            padding: 2px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         /* Main Game Layout Container */
@@ -99,7 +130,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
         }
 
@@ -108,8 +139,8 @@
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
             backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 12px 10px;
+            border-radius: 14px;
+            padding: 8px 10px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.37);
         }
@@ -118,7 +149,7 @@
         .score-card.banca { border-color: rgba(249, 115, 22, 0.5); }
 
         .score-card .label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -126,7 +157,7 @@
 
         .score-card .score {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
             line-height: 1.1;
             margin-top: 2px;
@@ -145,12 +176,12 @@
         .vs-circle {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--purple-glow);
             background: rgba(124, 58, 237, 0.2);
             border: 1px solid var(--purple-glow);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -164,8 +195,8 @@
             width: 100%;
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
-            border-radius: 20px;
-            padding: 22px 15px;
+            border-radius: 18px;
+            padding: 18px 12px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -177,20 +208,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
-            width: 110px;
+            gap: 5px;
+            width: 100px;
         }
 
         .choice-icon-box {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             border: 2px dashed rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -212,7 +243,7 @@
         }
 
         .choice-name {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -223,9 +254,9 @@
             position: absolute;
             bottom: -13px;
             background: linear-gradient(90deg, var(--purple-main), var(--blue-main));
-            padding: 5px 16px;
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             letter-spacing: 0.5px;
@@ -243,16 +274,16 @@
         }
 
         .controls-title {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .controls {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             width: 100%;
             justify-content: center;
         }
@@ -261,23 +292,23 @@
             flex: 1;
             background: rgba(30, 20, 60, 0.8);
             border: 2px solid var(--purple-main);
-            border-radius: 16px;
-            padding: 12px 8px;
+            border-radius: 14px;
+            padding: 10px 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .btn-choice .icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .btn-choice .btn-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-light);
             text-transform: uppercase;
@@ -293,14 +324,14 @@
             filter: grayscale(0.8);
         }
 
-        /* Modal / Victory Reveal */
+        /* Modals Generic */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(5, 3, 12, 0.9);
+            background: rgba(5, 3, 12, 0.92);
             backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
@@ -323,7 +354,7 @@
             border-radius: 20px;
             max-width: 400px;
             width: 100%;
-            padding: 25px 15px;
+            padding: 22px 15px;
             text-align: center;
             box-shadow: 0 0 40px rgba(249, 115, 22, 0.4);
             transform: scale(0.8);
@@ -334,11 +365,45 @@
             transform: scale(1);
         }
 
+        /* INITIAL LANGUAGE SELECTION MODAL */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-lang-option {
+            background: rgba(30, 20, 60, 0.8);
+            border: 1px solid var(--purple-main);
+            border-radius: 12px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-lang-option:hover, .btn-lang-option:active {
+            border-color: var(--orange-glow);
+            background: rgba(249, 115, 22, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-lang-option .flag {
+            font-size: 1.4rem;
+        }
+
         .modal-card h2 {
             font-family: 'Orbitron', sans-serif;
-            color: #4ade80;
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+            color: var(--blue-cyan);
+            font-size: 1.3rem;
+            margin-bottom: 6px;
             text-transform: uppercase;
         }
 
@@ -364,7 +429,7 @@
             color: white;
             border: none;
             padding: 10px 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             border-radius: 10px;
             cursor: pointer;
@@ -399,7 +464,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 6px 4px 2px 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             flex-shrink: 0;
@@ -422,22 +487,35 @@
 
     <canvas id="canvas-confetti"></canvas>
 
+    <!-- Top Bar with mini language switch -->
+    <div class="top-bar">
+        <div></div>
+        <div class="lang-selector-mini">
+            <button class="flag-btn-mini" onclick="setLanguage('es')">🇪🇸</button>
+            <button class="flag-btn-mini" onclick="setLanguage('en')">🇬🇧</button>
+            <button class="flag-btn-mini" onclick="setLanguage('fr')">🇫🇷</button>
+            <button class="flag-btn-mini" onclick="setLanguage('pt')">🇵🇹</button>
+            <button class="flag-btn-mini" onclick="setLanguage('de')">🇩🇪</button>
+            <button class="flag-btn-mini" onclick="setLanguage('it')">🇮🇹</button>
+        </div>
+    </div>
+
     <header>
         <h1>CULLERA</h1>
-        <p>Piedra, Papel o Tijera</p>
-        <div class="target-badge">Gana 12 partidas a la banca</div>
+        <p id="txt-subtitle">Piedra, Papel o Tijera</p>
+        <div class="target-badge" id="txt-badge">Gana 12 partidas a la banca</div>
     </header>
 
     <div class="game-container">
         <!-- Scoreboard -->
         <div class="scoreboard-container">
             <div class="score-card player">
-                <div class="label">Jugador</div>
+                <div class="label" id="txt-label-player">Jugador</div>
                 <div class="score" id="player-score">0</div>
             </div>
             <div class="vs-circle">VS</div>
             <div class="score-card banca">
-                <div class="label">Banca</div>
+                <div class="label" id="txt-label-banca">Banca</div>
                 <div class="score" id="banca-score">0</div>
             </div>
         </div>
@@ -446,60 +524,269 @@
         <div class="arena" id="arena-box">
             <div class="choice-display">
                 <div class="choice-icon-box" id="player-box">❓</div>
-                <div class="choice-name" id="player-choice-name">Esperando...</div>
+                <div class="choice-name" id="player-choice-name">...</div>
             </div>
 
             <div class="choice-display">
                 <div class="choice-icon-box" id="banca-box">❓</div>
-                <div class="choice-name" id="banca-choice-name">Esperando...</div>
+                <div class="choice-name" id="banca-choice-name">...</div>
             </div>
 
-            <div class="status-message" id="status-msg">¡Elige tu movimiento para empezar!</div>
+            <div class="status-message" id="status-msg">¡Elige tu movimiento!</div>
         </div>
 
         <!-- Controls -->
         <div class="controls-wrapper">
-            <div class="controls-title">Selecciona tu jugada</div>
+            <div class="controls-title" id="txt-select-title">Selecciona tu jugada</div>
             <div class="controls">
                 <button class="btn-choice" onclick="playRound('rock')">
                     <span class="icon">💎</span>
-                    <span class="btn-label">Piedra</span>
+                    <span class="btn-label" id="txt-btn-rock">Piedra</span>
                 </button>
                 <button class="btn-choice" onclick="playRound('paper')">
                     <span class="icon">📄</span>
-                    <span class="btn-label">Papel</span>
+                    <span class="btn-label" id="txt-btn-paper">Papel</span>
                 </button>
                 <button class="btn-choice" onclick="playRound('scissors')">
                     <span class="icon">✂️</span>
-                    <span class="btn-label">Tijera</span>
+                    <span class="btn-label" id="txt-btn-scissors">Tijera</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- FIRMA PIE DE PÁGINA (FOOTER REUTILIZABLE) -->
+    <!-- FIRMA PIE DE PÁGINA GLOBAL -->
     <footer>
         <a href="https://www.geocaching.com/plan/lists/BMFC2Z7" target="_blank" rel="noopener noreferrer">GeoPaterna</a>
         <a href="https://www.geocaching.com/p/?guid=8aa34b6e-769c-42e2-ab66-4163f9a40e13&wid=9b106a24-4eef-41ab-8a06-c207d4143cb1&ds=2" target="_blank" rel="noopener noreferrer">fran_giga</a>
     </footer>
 
+    <!-- Initial Language Selection Modal -->
+    <div class="modal-overlay active" id="lang-modal">
+        <div class="modal-card">
+            <h2>SELECT LANGUAGE</h2>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">Choose your language to start</p>
+            <div class="lang-grid">
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('es')">
+                    <span class="flag">🇪🇸</span> <span>Español</span>
+                </button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('en')">
+                    <span class="flag">🇬🇧</span> <span>English</span>
+                </button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('fr')">
+                    <span class="flag">🇫🇷</span> <span>Français</span>
+                </button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('pt')">
+                    <span class="flag">🇵🇹</span> <span>Português</span>
+                </button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('de')">
+                    <span class="flag">🇩🇪</span> <span>Deutsch</span>
+                </button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('it')">
+                    <span class="flag">🇮🇹</span> <span>Italiano</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Victory Modal -->
     <div class="modal-overlay" id="victory-modal">
         <div class="modal-card">
-            <h2>¡LO CONSEGUISTE! 🎉</h2>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">Has derrotado a la banca 12 a <span id="final-banca-score">0</span></p>
+            <h2 id="txt-victory-title">¡LO CONSEGUISTE! 🎉</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;"><span id="txt-victory-desc">Has derrotado a la banca 12 a</span> <span id="final-banca-score">0</span></p>
 
             <div style="margin-top: 15px;">
-                <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Clave Certitude:</span><br>
+                <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;" id="txt-certitude-label">Clave Certitude:</span><br>
                 <div class="key-badge">I-LOVE-CULLERA</div>
             </div>
 
-            <button class="btn-reset" onclick="resetGameFull()">Jugar de Nuevo</button>
+            <button class="btn-reset" onclick="resetGameFull()" id="txt-btn-replay">Jugar de Nuevo</button>
         </div>
     </div>
 
     <script>
-        // Audio Synthesizer using Web Audio API
+        // TRANSLATIONS DICTIONARY
+        const translations = {
+            es: {
+                subtitle: "Piedra, Papel o Tijera",
+                badge: "Gana 12 partidas a la banca",
+                player: "Jugador",
+                banca: "Banca",
+                thinking: "Pensando...",
+                waiting: "Esperando...",
+                start: "¡Elige tu movimiento!",
+                select: "Selecciona tu jugada",
+                rock: "Piedra",
+                paper: "Papel",
+                scissors: "Tijera",
+                draw: "¡Empate en esta ronda!",
+                pointPlayer: "¡Punto para ti! ({p} vence a {b})",
+                pointBanca: "¡Punto para la Banca! ({b} vence a {p})",
+                bancaWon: "¡La Banca ha alcanzado 12 puntos! Reiniciando...",
+                resetSuccess: "Juego reiniciado. ¡Inténtalo de nuevo!",
+                victoryTitle: "¡LO CONSEGUISTE! 🎉",
+                victoryDesc: "Has derrotado a la banca 12 a",
+                certitudeLabel: "Clave Certitude:",
+                replay: "Jugar de Nuevo",
+                shaking: "¡Piedra, papel o tijera...!"
+            },
+            en: {
+                subtitle: "Rock, Paper, Scissors",
+                badge: "Win 12 rounds against the bank",
+                player: "Player",
+                banca: "Bank",
+                thinking: "Thinking...",
+                waiting: "Waiting...",
+                start: "Choose your move!",
+                select: "Select your move",
+                rock: "Rock",
+                paper: "Paper",
+                scissors: "Scissors",
+                draw: "It's a tie this round!",
+                pointPlayer: "Point for you! ({p} beats {b})",
+                pointBanca: "Point for the Bank! ({b} beats {p})",
+                bancaWon: "The Bank reached 12 points! Resetting...",
+                resetSuccess: "Game reset. Try again!",
+                victoryTitle: "YOU DID IT! 🎉",
+                victoryDesc: "You defeated the bank 12 to",
+                certitudeLabel: "Certitude Keyword:",
+                replay: "Play Again",
+                shaking: "Rock, paper, scissors...!"
+            },
+            fr: {
+                subtitle: "Pierre, Papier, Ciseaux",
+                badge: "Gagnez 12 parties contre la banque",
+                player: "Joueur",
+                banca: "Banque",
+                thinking: "Réflexion...",
+                waiting: "En attente...",
+                start: "Choisissez votre coup !",
+                select: "Sélectionnez votre coup",
+                rock: "Pierre",
+                paper: "Papier",
+                scissors: "Ciseaux",
+                draw: "Égalité pour esta manche !",
+                pointPlayer: "Point pour vous ! ({p} bat {b})",
+                pointBanca: "Point pour la Banque ! ({b} bat {p})",
+                bancaWon: "La Banque a atteint 12 points ! Réinitialisation...",
+                resetSuccess: "Jeu réinitialisé. Réessayez !",
+                victoryTitle: "RÉUSSI ! 🎉",
+                victoryDesc: "Vous avez battu la banque 12 à",
+                certitudeLabel: "Mot-clé Certitude :",
+                replay: "Rejouer",
+                shaking: "Pierre, papier, ciseaux...!"
+            },
+            pt: {
+                subtitle: "Pedra, Papel, Tesoura",
+                badge: "Vença 12 rodadas contra a banca",
+                player: "Jogador",
+                banca: "Banca",
+                thinking: "Pensando...",
+                waiting: "Aguardando...",
+                start: "Escolha a sua jogada!",
+                select: "Selecione a sua jogada",
+                rock: "Pedra",
+                paper: "Papel",
+                scissors: "Tesoura",
+                draw: "Empate nesta rodada!",
+                pointPlayer: "Ponto para você! ({p} vence {b})",
+                pointBanca: "Ponto para a Banca! ({b} vence {p})",
+                bancaWon: "A Banca atingiu 12 pontos! Reiniciando...",
+                resetSuccess: "Jogo reiniciado. Tente novamente!",
+                victoryTitle: "CONSEGUIU! 🎉",
+                victoryDesc: "Você derrotou a banca por 12 a",
+                certitudeLabel: "Chave Certitude:",
+                replay: "Jogar Novamente",
+                shaking: "Pedra, papel, tesoura...!"
+            },
+            de: {
+                subtitle: "Stein, Papier, Schere",
+                badge: "Gewinne 12 Runden gegen die Bank",
+                player: "Spieler",
+                banca: "Bank",
+                thinking: "Überlegt...",
+                waiting: "Wartet...",
+                start: "Wähle deinen Zug!",
+                select: "Wähle deinen Zug",
+                rock: "Stein",
+                paper: "Papier",
+                scissors: "Schere",
+                draw: "Unentschieden in dieser Runde!",
+                pointPlayer: "Punkt für dich! ({p} schlägt {b})",
+                pointBanca: "Punkt für die Bank! ({b} schlägt {p})",
+                bancaWon: "Die Bank hat 12 Punkte erreicht! Neustart...",
+                resetSuccess: "Spiel zurückgesetzt. Versuche es nochmal!",
+                victoryTitle: "GESCHAFFT! 🎉",
+                victoryDesc: "Du hast die Bank besiegt 12 zu",
+                certitudeLabel: "Certitude-Schlüssel:",
+                replay: "Nochmal spielen",
+                shaking: "Stein, Papier, Schere...!"
+            },
+            it: {
+                subtitle: "Sasso, Carta, Forbice",
+                badge: "Vinci 12 partite contro la banca",
+                player: "Giocatore",
+                banca: "Banca",
+                thinking: "Pensando...",
+                waiting: "In attesa...",
+                start: "Scegli la tua mossa!",
+                select: "Seleziona la tua mossa",
+                rock: "Sasso",
+                paper: "Carta",
+                scissors: "Forbice",
+                draw: "Pareggio in questo turno!",
+                pointPlayer: "Punto per te! ({p} batte {b})",
+                pointBanca: "Punto per la Banca! ({b} batte {p})",
+                bancaWon: "La Banca ha raggiunto 12 punti! Ripristino...",
+                resetSuccess: "Gioco ripristinato. Riprova!",
+                victoryTitle: "CE L'HAI FATTA! 🎉",
+                victoryDesc: "Hai sconfitto la banca 12 a",
+                certitudeLabel: "Chiave Certitude:",
+                replay: "Gioca di nuovo",
+                shaking: "Sasso, carta, forbice...!"
+            }
+        };
+
+        let currentLang = 'es';
+
+        function chooseInitialLanguage(lang) {
+            setLanguage(lang);
+            document.getElementById('lang-modal').classList.remove('active');
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+
+            document.getElementById('txt-subtitle').innerText = t.subtitle;
+            document.getElementById('txt-badge').innerText = t.badge;
+            document.getElementById('txt-label-player').innerText = t.player;
+            document.getElementById('txt-label-banca').innerText = t.banca;
+            document.getElementById('txt-select-title').innerText = t.select;
+            document.getElementById('txt-btn-rock').innerText = t.rock;
+            document.getElementById('txt-btn-paper').innerText = t.paper;
+            document.getElementById('txt-btn-scissors').innerText = t.scissors;
+            document.getElementById('txt-victory-title').innerText = t.victoryTitle;
+            document.getElementById('txt-victory-desc').innerText = t.victoryDesc;
+            document.getElementById('txt-certitude-label').innerText = t.certitudeLabel;
+            document.getElementById('txt-btn-replay').innerText = t.replay;
+
+            if (!isPlaying && playerScore === 0 && bancaScore === 0) {
+                document.getElementById('status-msg').innerText = t.start;
+                document.getElementById('player-choice-name').innerText = t.waiting;
+                document.getElementById('banca-choice-name').innerText = t.waiting;
+            }
+
+            // Update flags highlight
+            const flags = document.querySelectorAll('.flag-btn-mini');
+            flags.forEach(btn => btn.classList.remove('active'));
+            const activeIndex = ['es', 'en', 'fr', 'pt', 'de', 'it'].indexOf(lang);
+            if (activeIndex !== -1 && flags[activeIndex]) {
+                flags[activeIndex].classList.add('active');
+            }
+        }
+
+        // Audio Synthesizer
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         let audioCtx;
 
@@ -576,11 +863,9 @@
         const TARGET_SCORE = 12;
         let isPlaying = false;
 
-        const moveData = {
-            rock: { icon: '💎', name: 'Piedra' },
-            paper: { icon: '📄', name: 'Papel' },
-            scissors: { icon: '✂️', name: 'Tijera' }
-        };
+        function getMoveName(moveKey) {
+            return translations[currentLang][moveKey];
+        }
 
         function playRound(playerChoice) {
             if (isPlaying) return;
@@ -594,15 +879,16 @@
             const playerChoiceName = document.getElementById('player-choice-name');
             const bancaChoiceName = document.getElementById('banca-choice-name');
             const statusMsg = document.getElementById('status-msg');
+            const t = translations[currentLang];
 
             playerBox.className = 'choice-icon-box active player-active';
             bancaBox.className = 'choice-icon-box active banca-active';
 
             playerBox.innerText = '✊';
             bancaBox.innerText = '✊';
-            playerChoiceName.innerText = 'Pensando...';
-            bancaChoiceName.innerText = 'Pensando...';
-            statusMsg.innerText = '¡Piedra, papel o tijera...!';
+            playerChoiceName.innerText = t.thinking;
+            bancaChoiceName.innerText = t.thinking;
+            statusMsg.innerText = t.shaking;
 
             let step = 0;
             const interval = setInterval(() => {
@@ -620,23 +906,29 @@
             const choices = ['rock', 'paper', 'scissors'];
             const bancaChoice = choices[Math.floor(Math.random() * choices.length)];
 
+            const moveIcons = { rock: '💎', paper: '📄', scissors: '✂️' };
+
             const playerBox = document.getElementById('player-box');
             const bancaBox = document.getElementById('banca-box');
             const playerChoiceName = document.getElementById('player-choice-name');
             const bancaChoiceName = document.getElementById('banca-choice-name');
             const statusMsg = document.getElementById('status-msg');
+            const t = translations[currentLang];
 
             playerBox.style.transform = 'none';
             bancaBox.style.transform = 'none';
 
-            playerBox.innerText = moveData[playerChoice].icon;
-            bancaBox.innerText = moveData[bancaChoice].icon;
+            playerBox.innerText = moveIcons[playerChoice];
+            bancaBox.innerText = moveIcons[bancaChoice];
 
-            playerChoiceName.innerText = moveData[playerChoice].name;
-            bancaChoiceName.innerText = moveData[bancaChoice].name;
+            playerChoiceName.innerText = getMoveName(playerChoice);
+            bancaChoiceName.innerText = getMoveName(bancaChoice);
+
+            const pName = getMoveName(playerChoice);
+            const bName = getMoveName(bancaChoice);
 
             if (playerChoice === bancaChoice) {
-                statusMsg.innerText = '¡Empate en esta ronda!';
+                statusMsg.innerText = t.draw;
             } else if (
                 (playerChoice === 'rock' && bancaChoice === 'scissors') ||
                 (playerChoice === 'paper' && bancaChoice === 'rock') ||
@@ -644,12 +936,12 @@
             ) {
                 playerScore++;
                 document.getElementById('player-score').innerText = playerScore;
-                statusMsg.innerText = `¡Punto para ti! (${moveData[playerChoice].name} vence a ${moveData[bancaChoice].name})`;
+                statusMsg.innerText = t.pointPlayer.replace('{p}', pName).replace('{b}', bName);
                 playSound('win');
             } else {
                 bancaScore++;
                 document.getElementById('banca-score').innerText = bancaScore;
-                statusMsg.innerText = `¡Punto para la Banca! (${moveData[bancaChoice].name} vence a ${moveData[playerChoice].name})`;
+                statusMsg.innerText = t.pointBanca.replace('{p}', pName).replace('{b}', bName);
                 playSound('lose');
             }
 
@@ -678,13 +970,14 @@
             arenaBox.classList.add('shake');
             
             const statusMsg = document.getElementById('status-msg');
-            statusMsg.innerText = '¡La Banca ha alcanzado 12 puntos! Reiniciando...';
+            const t = translations[currentLang];
+            statusMsg.innerText = t.bancaWon;
             statusMsg.style.background = 'linear-gradient(90deg, #dc2626, #ea580c)';
 
             setTimeout(() => {
                 arenaBox.classList.remove('shake');
                 resetGameScores();
-                statusMsg.innerText = 'Juego reiniciado. ¡Inténtalo de nuevo!';
+                statusMsg.innerText = t.resetSuccess;
                 statusMsg.style.background = 'linear-gradient(90deg, var(--purple-main), var(--blue-main))';
                 setButtonsDisabled(false);
                 isPlaying = false;
@@ -694,12 +987,13 @@
         function resetGameScores() {
             playerScore = 0;
             bancaScore = 0;
+            const t = translations[currentLang];
             document.getElementById('player-score').innerText = '0';
             document.getElementById('banca-score').innerText = '0';
             document.getElementById('player-box').innerText = '❓';
             document.getElementById('banca-box').innerText = '❓';
-            document.getElementById('player-choice-name').innerText = 'Esperando...';
-            document.getElementById('banca-choice-name').innerText = 'Esperando...';
+            document.getElementById('player-choice-name').innerText = t.waiting;
+            document.getElementById('banca-choice-name').innerText = t.waiting;
             document.getElementById('player-box').className = 'choice-icon-box';
             document.getElementById('banca-box').className = 'choice-icon-box';
         }
@@ -708,7 +1002,7 @@
             document.getElementById('victory-modal').classList.remove('active');
             stopConfetti();
             resetGameScores();
-            document.getElementById('status-msg').innerText = '¡Elige tu movimiento para empezar!';
+            document.getElementById('status-msg').innerText = translations[currentLang].start;
             setButtonsDisabled(false);
             isPlaying = false;
         }
