@@ -40,50 +40,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 8px 15px 8px 15px;
-        }
-
-        /* Header Bar with Centered Language Selector */
-        .top-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 2px auto;
-        }
-
-        .lang-selector-mini {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .flag-btn-mini {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            padding: 2px 6px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .flag-btn-mini.active {
-            border-color: var(--orange-glow);
-            background: rgba(249, 115, 22, 0.25);
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+            padding: 12px 15px 8px 15px;
         }
 
         /* Header */
         header {
             text-align: center;
-            margin-top: 2px;
+            margin-top: 4px;
             margin-bottom: 2px;
             flex-shrink: 0;
         }
@@ -493,18 +456,6 @@
 
     <canvas id="canvas-confetti"></canvas>
 
-    <!-- Top Bar with centered mini language switch -->
-    <div class="top-bar">
-        <div class="lang-selector-mini">
-            <button class="flag-btn-mini active" onclick="setLanguage('es')">🇪🇸</button>
-            <button class="flag-btn-mini" onclick="setLanguage('en')">🇬🇧</button>
-            <button class="flag-btn-mini" onclick="setLanguage('fr')">🇫🇷</button>
-            <button class="flag-btn-mini" onclick="setLanguage('pt')">🇵🇹</button>
-            <button class="flag-btn-mini" onclick="setLanguage('de')">🇩🇪</button>
-            <button class="flag-btn-mini" onclick="setLanguage('it')">🇮🇹</button>
-        </div>
-    </div>
-
     <header>
         <h1>CULLERA</h1>
         <p id="txt-subtitle">Piedra, Papel o Tijera</p>
@@ -670,7 +621,7 @@
                 rock: "Pierre",
                 paper: "Papier",
                 scissors: "Ciseaux",
-                draw: "Égalité pour esta manche !",
+                draw: "Égalité pour cette manche !",
                 pointPlayer: "Point pour vous ! ({p} bat {b})",
                 pointBanca: "Point pour la Banque ! ({b} bat {p})",
                 bancaWon: "La Banque a atteint 12 points ! Réinitialisation...",
@@ -780,14 +731,6 @@
                 document.getElementById('status-msg').innerText = t.start;
                 document.getElementById('player-choice-name').innerText = t.waiting;
                 document.getElementById('banca-choice-name').innerText = t.waiting;
-            }
-
-            // Update flags highlight
-            const flags = document.querySelectorAll('.flag-btn-mini');
-            flags.forEach(btn => btn.classList.remove('active'));
-            const activeIndex = ['es', 'en', 'fr', 'pt', 'de', 'it'].indexOf(lang);
-            if (activeIndex !== -1 && flags[activeIndex]) {
-                flags[activeIndex].classList.add('active');
             }
         }
 
