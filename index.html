@@ -30,7 +30,7 @@
         html, body {
             height: 100%;
             height: 100dvh; /* Altura dinámica exacta para navegadores móviles */
-            overflow: hidden; /* Evita totalmente el scrollbar */
+            overflow: hidden; /* Prohibido el scroll */
         }
 
         body {
@@ -40,20 +40,20 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 12px 15px 5px 15px;
+            padding: 15px 15px 8px 15px;
         }
 
         /* Header */
         header {
             text-align: center;
-            margin-top: 2px;
-            margin-bottom: 8px;
+            margin-top: 5px;
+            margin-bottom: 5px;
             flex-shrink: 0;
         }
 
         header h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             background: linear-gradient(135deg, var(--orange-glow), var(--purple-glow), var(--blue-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -65,7 +65,7 @@
 
         header p {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-top: 2px;
         }
 
@@ -74,11 +74,11 @@
             background: rgba(249, 115, 22, 0.15);
             border: 1px solid var(--orange-main);
             color: var(--orange-glow);
-            padding: 2px 10px;
+            padding: 3px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
         /* Main Game Layout Container */
@@ -86,12 +86,12 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
             width: 100%;
             max-width: 500px;
             margin: 0 auto;
-            min-height: 0; /* Evita desbordamiento flexbox */
+            min-height: 0;
         }
 
         /* Scoreboard */
@@ -108,8 +108,8 @@
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
             backdrop-filter: blur(12px);
-            border-radius: 14px;
-            padding: 8px 10px;
+            border-radius: 16px;
+            padding: 12px 10px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.37);
         }
@@ -118,7 +118,7 @@
         .score-card.banca { border-color: rgba(249, 115, 22, 0.5); }
 
         .score-card .label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -126,9 +126,10 @@
 
         .score-card .score {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 900;
             line-height: 1.1;
+            margin-top: 2px;
         }
 
         .score-card.player .score {
@@ -144,12 +145,12 @@
         .vs-circle {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--purple-glow);
             background: rgba(124, 58, 237, 0.2);
             border: 1px solid var(--purple-glow);
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -163,8 +164,8 @@
             width: 100%;
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
-            border-radius: 16px;
-            padding: 15px 10px;
+            border-radius: 20px;
+            padding: 22px 15px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -176,20 +177,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
-            width: 100px;
+            gap: 6px;
+            width: 110px;
         }
 
         .choice-icon-box {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             border: 2px dashed rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -211,7 +212,7 @@
         }
 
         .choice-name {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -220,11 +221,11 @@
         /* Status Banner */
         .status-message {
             position: absolute;
-            bottom: -12px;
+            bottom: -13px;
             background: linear-gradient(90deg, var(--purple-main), var(--blue-main));
-            padding: 4px 14px;
+            padding: 5px 16px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             letter-spacing: 0.5px;
@@ -242,16 +243,16 @@
         }
 
         .controls-title {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .controls {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
             justify-content: center;
         }
@@ -260,23 +261,23 @@
             flex: 1;
             background: rgba(30, 20, 60, 0.8);
             border: 2px solid var(--purple-main);
-            border-radius: 14px;
-            padding: 10px 5px;
+            border-radius: 16px;
+            padding: 12px 8px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         .btn-choice .icon {
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
         .btn-choice .btn-label {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--text-light);
             text-transform: uppercase;
@@ -291,30 +292,6 @@
             cursor: not-allowed;
             filter: grayscale(0.8);
         }
-
-        /* History Log */
-        .history-box {
-            width: 100%;
-            background: rgba(15, 10, 30, 0.6);
-            border-radius: 10px;
-            padding: 6px 10px;
-            height: 55px;
-            overflow-y: auto;
-            border: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .history-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 2px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
-
-        .history-win { color: var(--blue-cyan); }
-        .history-lose { color: var(--orange-main); }
-        .history-draw { color: var(--text-muted); }
 
         /* Modal / Victory Reveal */
         .modal-overlay {
@@ -379,7 +356,7 @@
             display: inline-block;
             white-space: nowrap;
             max-width: 100%;
-            text-transform: none; /* Mantener formato exacto */
+            text-transform: none;
         }
 
         .btn-reset {
@@ -422,7 +399,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 6px 4px 2px 4px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             flex-shrink: 0;
@@ -432,7 +409,7 @@
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.2s ease;
-            text-transform: none !important; /* Estricto: sin pasar a mayúsculas */
+            text-transform: none !important;
         }
 
         footer a:hover {
@@ -497,11 +474,6 @@
                     <span class="btn-label">Tijera</span>
                 </button>
             </div>
-        </div>
-
-        <!-- History Log -->
-        <div class="history-box" id="history-log">
-            <div class="history-item"><span>El juego ha comenzado.</span><span>-</span></div>
         </div>
     </div>
 
@@ -665,7 +637,6 @@
 
             if (playerChoice === bancaChoice) {
                 statusMsg.innerText = '¡Empate en esta ronda!';
-                addHistory('Empate', `${moveData[playerChoice].name} vs ${moveData[bancaChoice].name}`, 'history-draw');
             } else if (
                 (playerChoice === 'rock' && bancaChoice === 'scissors') ||
                 (playerChoice === 'paper' && bancaChoice === 'rock') ||
@@ -675,13 +646,11 @@
                 document.getElementById('player-score').innerText = playerScore;
                 statusMsg.innerText = `¡Punto para ti! (${moveData[playerChoice].name} vence a ${moveData[bancaChoice].name})`;
                 playSound('win');
-                addHistory('Ganaste ronda', `${moveData[playerChoice].name} > ${moveData[bancaChoice].name}`, 'history-win');
             } else {
                 bancaScore++;
                 document.getElementById('banca-score').innerText = bancaScore;
                 statusMsg.innerText = `¡Punto para la Banca! (${moveData[bancaChoice].name} vence a ${moveData[playerChoice].name})`;
                 playSound('lose');
-                addHistory('Banca gana ronda', `${moveData[bancaChoice].name} > ${moveData[playerChoice].name}`, 'history-lose');
             }
 
             setTimeout(() => {
@@ -739,7 +708,6 @@
             document.getElementById('victory-modal').classList.remove('active');
             stopConfetti();
             resetGameScores();
-            document.getElementById('history-log').innerHTML = '<div class="history-item"><span>Nuevo juego iniciado.</span><span>-</span></div>';
             document.getElementById('status-msg').innerText = '¡Elige tu movimiento para empezar!';
             setButtonsDisabled(false);
             isPlaying = false;
@@ -748,14 +716,6 @@
         function setButtonsDisabled(disabled) {
             const btns = document.querySelectorAll('.btn-choice');
             btns.forEach(b => b.disabled = disabled);
-        }
-
-        function addHistory(result, detail, cssClass) {
-            const historyLog = document.getElementById('history-log');
-            const item = document.createElement('div');
-            item.className = `history-item ${cssClass}`;
-            item.innerHTML = `<span>${result}</span><span>${detail}</span>`;
-            historyLog.prepend(item);
         }
 
         // Confetti Animation
