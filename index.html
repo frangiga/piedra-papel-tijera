@@ -426,17 +426,25 @@
             z-index: 999;
         }
 
-        /* FOOTER FIRMA GLOBAL */
+        /* FOOTER FIRMA GLOBAL CENTRADA Y AGRUPADA */
         footer {
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 6px 4px 2px 4px;
             font-size: 0.8rem;
             font-weight: 600;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             flex-shrink: 0;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         footer a {
@@ -513,8 +521,10 @@
 
     <!-- FIRMA PIE DE PÁGINA GLOBAL -->
     <footer>
-        <a href="https://www.geocaching.com/plan/lists/BMFC2Z7" target="_blank" rel="noopener noreferrer">GeoPaterna</a>
-        <a href="https://www.geocaching.com/p/?guid=8aa34b6e-769c-42e2-ab66-4163f9a40e13&wid=9b106a24-4eef-41ab-8a06-c207d4143cb1&ds=2" target="_blank" rel="noopener noreferrer">fran_giga</a>
+        <div class="footer-content">
+            <a href="https://www.geocaching.com/plan/lists/BMFC2Z7" target="_blank" rel="noopener noreferrer">GeoPaterna</a>
+            <a href="https://www.geocaching.com/p/?guid=8aa34b6e-769c-42e2-ab66-4163f9a40e13&wid=9b106a24-4eef-41ab-8a06-c207d4143cb1&ds=2" target="_blank" rel="noopener noreferrer">fran_giga</a>
+        </div>
     </footer>
 
     <!-- Initial Language Selection Modal -->
