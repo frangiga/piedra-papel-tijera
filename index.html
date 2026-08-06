@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+<!-- SI ESTÁS VIENDO ESTO PARA SOLUCIONAR EL JUEGO, ERES UN MISERABLE QUE NO MERECE ESTE CACHÉ -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CULLERA - Piedra, Papel, Tijera</title>
@@ -385,7 +388,7 @@
             font-weight: 900;
             letter-spacing: 2px;
             color: #fff;
-            margin: 15px 0;
+            margin: 12px 0 8px 0;
             box-shadow: 0 0 20px rgba(234, 88, 12, 0.5);
             display: inline-block;
             white-space: nowrap;
@@ -393,17 +396,60 @@
             text-transform: none;
         }
 
-        .btn-reset {
-            background: linear-gradient(90deg, var(--purple-main), var(--blue-main));
-            color: white;
-            border: none;
-            padding: 10px 20px;
+        /* Modal Action Buttons */
+        .modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-modal {
+            padding: 10px 15px;
             font-size: 0.85rem;
             font-weight: 700;
             border-radius: 10px;
             cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-copy {
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid var(--blue-cyan);
+            color: var(--blue-cyan);
+        }
+
+        .btn-copy:hover, .btn-copy:active {
+            background: rgba(6, 182, 212, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-certitude {
+            background: linear-gradient(90deg, #ea580c, #f97316);
+            color: white;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-certitude:hover, .btn-certitude:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+        }
+
+        .btn-reset {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-reset:hover, .btn-reset:active {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text-light);
         }
 
         /* Shake animation for defeat */
@@ -490,12 +536,10 @@
                 <div class="choice-icon-box" id="player-box">❓</div>
                 <div class="choice-name" id="player-choice-name">...</div>
             </div>
-
             <div class="choice-display">
                 <div class="choice-icon-box" id="banca-box">❓</div>
                 <div class="choice-name" id="banca-choice-name">...</div>
             </div>
-
             <div class="status-message" id="status-msg">¡Elige tu movimiento!</div>
         </div>
 
@@ -533,24 +577,12 @@
             <h2>SELECT LANGUAGE</h2>
             <p style="color: var(--text-muted); font-size: 0.8rem;">Choose your language to start</p>
             <div class="lang-grid">
-                <button class="btn-lang-option" onclick="chooseInitialLanguage('es')">
-                    <span class="flag">🇪🇸</span> <span>Español</span>
-                </button>
-                <button class="btn-lang-option" onclick="chooseInitialLanguage('en')">
-                    <span class="flag">🇬🇧</span> <span>English</span>
-                </button>
-                <button class="btn-lang-option" onclick="chooseInitialLanguage('fr')">
-                    <span class="flag">🇫🇷</span> <span>Français</span>
-                </button>
-                <button class="btn-lang-option" onclick="chooseInitialLanguage('pt')">
-                    <span class="flag">🇵🇹</span> <span>Português</span>
-                </button>
-                <button class="btn-lang-option" onclick="chooseInitialLanguage('de')">
-                    <span class="flag">🇩🇪</span> <span>Deutsch</span>
-                </button>
-                <button class="btn-lang-option" onclick="chooseInitialLanguage('it')">
-                    <span class="flag">🇮🇹</span> <span>Italiano</span>
-                </button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('es')"><span class="flag">🇪🇸</span><span>Español</span></button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('en')"><span class="flag">🇬🇧</span><span>English</span></button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('fr')"><span class="flag">🇫🇷</span><span>Français</span></button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('pt')"><span class="flag">🇵🇹</span><span>Português</span></button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('de')"><span class="flag">🇩🇪</span><span>Deutsch</span></button>
+                <button class="btn-lang-option" onclick="chooseInitialLanguage('it')"><span class="flag">🇮🇹</span><span>Italiano</span></button>
             </div>
         </div>
     </div>
@@ -559,14 +591,26 @@
     <div class="modal-overlay" id="victory-modal">
         <div class="modal-card">
             <h2 id="txt-victory-title">¡LO CONSEGUISTE! 🎉</h2>
-            <p style="color: var(--text-muted); font-size: 0.85rem;"><span id="txt-victory-desc">Has derrotado a la banca 12 a</span> <span id="final-banca-score">0</span></p>
-
+            <p style="color: var(--text-muted); font-size: 0.85rem;">
+                <span id="txt-victory-desc">Has derrotado a la banca 12 a</span> <span id="final-banca-score">0</span>
+            </p>
+            
             <div style="margin-top: 15px;">
                 <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;" id="txt-certitude-label">Clave Certitude:</span><br>
-                <div class="key-badge">I-LOVE-CULLERA</div>
+                <div class="key-badge" id="secret-key">I-LOVE-CULLERA</div>
             </div>
 
-            <button class="btn-reset" onclick="resetGameFull()" id="txt-btn-replay">Jugar de Nuevo</button>
+            <div class="modal-actions">
+                <button class="btn-modal btn-copy" onclick="copyKey()" id="txt-btn-copy">
+                    📋 Copiar Clave
+                </button>
+                <a href="https://www.certitudes.org/certitude?wp=GCBVHWN" target="_blank" rel="noopener noreferrer" class="btn-modal btn-certitude" id="txt-btn-certitude">
+                    🚀 IR AL CERTITUDE
+                </a>
+                <button class="btn-modal btn-reset" onclick="resetGameFull()" id="txt-btn-replay">
+                    🔄 Jugar de Nuevo
+                </button>
+            </div>
         </div>
     </div>
 
@@ -593,7 +637,10 @@
                 victoryTitle: "¡LO CONSEGUISTE! 🎉",
                 victoryDesc: "Has derrotado a la banca 12 a",
                 certitudeLabel: "Clave Certitude:",
-                replay: "Jugar de Nuevo",
+                copyBtn: "📋 Copiar Clave",
+                copiedBtn: "✅ ¡Copiado!",
+                certitudeBtn: "🚀 IR AL CERTITUDE",
+                replay: "🔄 Jugar de Nuevo",
                 shaking: "¡Piedra, papel o tijera...!"
             },
             en: {
@@ -616,7 +663,10 @@
                 victoryTitle: "YOU DID IT! 🎉",
                 victoryDesc: "You defeated the bank 12 to",
                 certitudeLabel: "Certitude Keyword:",
-                replay: "Play Again",
+                copyBtn: "📋 Copy Key",
+                copiedBtn: "✅ Copied!",
+                certitudeBtn: "🚀 GO TO CERTITUDE",
+                replay: "🔄 Play Again",
                 shaking: "Rock, paper, scissors...!"
             },
             fr: {
@@ -639,7 +689,10 @@
                 victoryTitle: "RÉUSSI ! 🎉",
                 victoryDesc: "Vous avez battu la banque 12 à",
                 certitudeLabel: "Mot-clé Certitude :",
-                replay: "Rejouer",
+                copyBtn: "📋 Copier la clé",
+                copiedBtn: "✅ Copié !",
+                certitudeBtn: "🚀 ALLER SUR CERTITUDE",
+                replay: "🔄 Rejouer",
                 shaking: "Pierre, papier, ciseaux...!"
             },
             pt: {
@@ -662,7 +715,10 @@
                 victoryTitle: "CONSEGUIU! 🎉",
                 victoryDesc: "Você derrotou a banca por 12 a",
                 certitudeLabel: "Chave Certitude:",
-                replay: "Jogar Novamente",
+                copyBtn: "📋 Copiar Chave",
+                copiedBtn: "✅ Copiado!",
+                certitudeBtn: "🚀 IR PARA O CERTITUDE",
+                replay: "🔄 Jogar Novamente",
                 shaking: "Pedra, papel, tesoura...!"
             },
             de: {
@@ -685,7 +741,10 @@
                 victoryTitle: "GESCHAFFT! 🎉",
                 victoryDesc: "Du hast die Bank besiegt 12 zu",
                 certitudeLabel: "Certitude-Schlüssel:",
-                replay: "Nochmal spielen",
+                copyBtn: "📋 Schlüssel kopieren",
+                copiedBtn: "✅ Kopiert!",
+                certitudeBtn: "🚀 ZU CERTITUDE GEHEN",
+                replay: "🔄 Nochmal spielen",
                 shaking: "Stein, Papier, Schere...!"
             },
             it: {
@@ -708,7 +767,10 @@
                 victoryTitle: "CE L'HAI FATTA! 🎉",
                 victoryDesc: "Hai sconfitto la banca 12 a",
                 certitudeLabel: "Chiave Certitude:",
-                replay: "Gioca di nuovo",
+                copyBtn: "📋 Copia Chiave",
+                copiedBtn: "✅ Copiato!",
+                certitudeBtn: "🚀 VAI SU CERTITUDE",
+                replay: "🔄 Gioca di nuovo",
                 shaking: "Sasso, carta, forbice...!"
             }
         };
@@ -723,7 +785,6 @@
         function setLanguage(lang) {
             currentLang = lang;
             const t = translations[lang];
-
             document.getElementById('txt-subtitle').innerText = t.subtitle;
             document.getElementById('txt-badge').innerText = t.badge;
             document.getElementById('txt-label-player').innerText = t.player;
@@ -732,9 +793,12 @@
             document.getElementById('txt-btn-rock').innerText = t.rock;
             document.getElementById('txt-btn-paper').innerText = t.paper;
             document.getElementById('txt-btn-scissors').innerText = t.scissors;
+            
             document.getElementById('txt-victory-title').innerText = t.victoryTitle;
             document.getElementById('txt-victory-desc').innerText = t.victoryDesc;
             document.getElementById('txt-certitude-label').innerText = t.certitudeLabel;
+            document.getElementById('txt-btn-copy').innerText = t.copyBtn;
+            document.getElementById('txt-btn-certitude').innerText = t.certitudeBtn;
             document.getElementById('txt-btn-replay').innerText = t.replay;
 
             if (!isPlaying && playerScore === 0 && bancaScore === 0) {
@@ -742,6 +806,20 @@
                 document.getElementById('player-choice-name').innerText = t.waiting;
                 document.getElementById('banca-choice-name').innerText = t.waiting;
             }
+        }
+
+        // Copy Key Functionality
+        function copyKey() {
+            const keyText = document.getElementById('secret-key').innerText;
+            navigator.clipboard.writeText(keyText).then(() => {
+                const copyBtn = document.getElementById('txt-btn-copy');
+                copyBtn.innerText = translations[currentLang].copiedBtn;
+                setTimeout(() => {
+                    copyBtn.innerText = translations[currentLang].copyBtn;
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
         }
 
         // Audio Synthesizer
@@ -841,7 +919,6 @@
 
             playerBox.className = 'choice-icon-box active player-active';
             bancaBox.className = 'choice-icon-box active banca-active';
-
             playerBox.innerText = '✊';
             bancaBox.innerText = '✊';
             playerChoiceName.innerText = t.thinking;
@@ -853,6 +930,7 @@
                 step++;
                 playerBox.style.transform = `translateY(${step % 2 === 0 ? -6 : 0}px) scale(1.05)`;
                 bancaBox.style.transform = `translateY(${step % 2 === 0 ? -6 : 0}px) scale(1.05)`;
+
                 if (step >= 6) {
                     clearInterval(interval);
                     resolveRound(playerChoice);
@@ -865,7 +943,6 @@
             const bancaChoice = choices[Math.floor(Math.random() * choices.length)];
 
             const moveIcons = { rock: '💎', paper: '📄', scissors: '✂️' };
-
             const playerBox = document.getElementById('player-box');
             const bancaBox = document.getElementById('banca-box');
             const playerChoiceName = document.getElementById('player-choice-name');
@@ -878,7 +955,6 @@
 
             playerBox.innerText = moveIcons[playerChoice];
             bancaBox.innerText = moveIcons[bancaChoice];
-
             playerChoiceName.innerText = getMoveName(playerChoice);
             bancaChoiceName.innerText = getMoveName(bancaChoice);
 
@@ -926,7 +1002,7 @@
             playSound('reset');
             const arenaBox = document.getElementById('arena-box');
             arenaBox.classList.add('shake');
-            
+
             const statusMsg = document.getElementById('status-msg');
             const t = translations[currentLang];
             statusMsg.innerText = t.bancaWon;
